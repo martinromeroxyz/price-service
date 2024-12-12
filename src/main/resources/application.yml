@@ -3,7 +3,7 @@ spring:
     url: jdbc:h2:mem:db
     driverClassName: org.h2.Driver
     username: sa
-    password: sa
+    password:
   sql:
     init:
       schema-locations: classpath:sql/schema.sql

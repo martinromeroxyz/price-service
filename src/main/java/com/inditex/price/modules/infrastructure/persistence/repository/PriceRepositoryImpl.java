@@ -37,6 +37,7 @@ public class PriceRepositoryImpl implements PriceRepository {
                 .endDate(entity.getEndDate())
                 .price(entity.getPrice())
                 .currency(entity.getCurrency())
+                .priceList(entity.getPriceList())
                 .priority(entity.getPriority())
                 .build();
     }
