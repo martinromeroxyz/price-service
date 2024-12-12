@@ -1,0 +1,1 @@
+curl --location 'localhost:8080/price?productId=35455&date=2020-06-14T21%3A00%3A00&brandId=1'
