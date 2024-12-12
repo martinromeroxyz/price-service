@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "0faa66e0-2b14-4331-ae34-cdca94f1d7f3",
+		"name": "Price Service Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3969047"
+	},
+	"item": [
+		{
+			"name": "200 OK",
+			"item": [
+				{
+					"name": "GetPrice_Product1_Brand1_Date1_Returns200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Price is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.price).to.eql(35.50);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=35455&brandId=1&date=2020-06-14T21:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "35455"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-14T21:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPrice_Product1_Brand1_Date2_Returns200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Price is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.price).to.eql(25.45);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=35455&brandId=1&date=2020-06-14T16:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "35455"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-14T16:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPrice_Product1_Brand1_Date3_Returns200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Price is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.price).to.eql(35.50);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=35455&brandId=1&date=2020-06-14T21:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "35455"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-14T21:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPrice_Product1_Brand1_Date4_Returns200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Price is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.price).to.eql(30.50);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=35455&brandId=1&date=2020-06-15T10:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "35455"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-15T10:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPrice_Product1_Brand1_Date5_Returns200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Price is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.price).to.eql(38.95);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=35455&brandId=1&date=2020-06-16T21:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "35455"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-16T21:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "404 Not Found",
+			"item": [
+				{
+					"name": "GetPrice_UnexistentProduct_Brand1_Date1_Returns404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=354557&brandId=1&date=2020-06-14T21:00:00",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "354557"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-14T21:00:00",
+									"description": "2 elementos"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "400 Bad Request",
+			"item": [
+				{
+					"name": "GetPrice_Product1_Brand1_Returns400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/price?productId=354557&brandId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"price"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "354557"
+								},
+								{
+									"key": "brandId",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2020-06-14T21:00:00",
+									"description": "2 elementos",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

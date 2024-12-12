@@ -68,8 +68,8 @@ class PriceControllerTest {
     }
 
     @Test
-    public void shouldReturn500WhenInvalidRequest() throws Exception {
-        mockMvc.perform(get(GET_PRICE_URL)).andExpect(status().isInternalServerError()).andReturn();
+    public void shouldReturn400WhenInvalidRequest() throws Exception {
+        mockMvc.perform(get(GET_PRICE_URL)).andExpect(status().isBadRequest()).andReturn();
     }
 
     private PriceDTO mockPriceDTO() {

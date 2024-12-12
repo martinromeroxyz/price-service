@@ -3,6 +3,9 @@
 This Spring Boot service provides an endpoint to retrieve the price of an article based on a given filter.
 It utilizes H2 database for data storage and Swagger for API documentation.
 
+The project is built using hexagonal architecture and an API-first approach.
+It is dockerized and can be run as a container.
+
 ## Features
 
 - RESTful API to get article prices
@@ -31,6 +34,8 @@ The application will start on `http://localhost:8080`
 You can access the H2 database console at:
 
 http://localhost:8080/h2console/
+
+No credentials are required to access.
 
 ### API Documentation
 
