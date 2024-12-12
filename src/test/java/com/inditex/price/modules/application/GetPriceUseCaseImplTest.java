@@ -4,7 +4,7 @@ import com.inditex.price.model.PriceDTO;
 import com.inditex.price.modules.domain.model.Price;
 import com.inditex.price.modules.domain.repository.PriceRepository;
 import com.inditex.price.modules.infrastructure.error.PriceException;
-import com.inditex.price.modules.infrastructure.web.converter.PriceToPriceDTOConverter;
+import com.inditex.price.modules.application.converter.PriceToPriceDTOConverter;
 import com.inditex.price.modules.infrastructure.web.filter.PriceFilter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
