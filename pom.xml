@@ -105,6 +105,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.22</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -137,6 +138,9 @@
 							<apiPackage>com.inditex.price.api</apiPackage>
 							<modelPackage>com.inditex.price.model</modelPackage>
 							<configOptions>
+								<additionalModelTypeAnnotations>
+									@lombok.Builder
+								</additionalModelTypeAnnotations>
 								<useJakartaEe>true</useJakartaEe>
 								<useSpringBoot3>true</useSpringBoot3>
 								<sourceFolder>src/main/java/</sourceFolder>
@@ -145,6 +149,9 @@
 								<skipDefaultInterface>true</skipDefaultInterface>
 								<useTags>true</useTags>
 							</configOptions>
+							<typeMappings>
+								<typeMapping>date-localdatetime=java.time.LocalDateTime</typeMapping>
+							</typeMappings>
 						</configuration>
 					</execution>
 				</executions>
