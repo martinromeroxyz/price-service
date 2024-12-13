@@ -1,4 +1,4 @@
-package com.inditex.price.modules.infrastructure.web.controller;
+package com.inditex.price.modules.infrastructure.web;
 
 import com.inditex.price.api.PriceApi;
 import com.inditex.price.model.PriceDTO;

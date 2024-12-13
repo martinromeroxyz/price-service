@@ -5,6 +5,7 @@ import com.inditex.price.modules.domain.usecase.GetPriceUseCase;
 import com.inditex.price.modules.infrastructure.error.ErrorHandler;
 import com.inditex.price.modules.infrastructure.error.PriceException;
 import com.inditex.price.modules.domain.filter.PriceFilter;
+import com.inditex.price.modules.infrastructure.web.PriceController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,7 +32,7 @@ class PriceControllerTest {
     private static final String GET_PRICE_URL = "/price";
 
     @InjectMocks
-    private com.inditex.price.modules.infrastructure.web.controller.PriceController priceController;
+    private PriceController priceController;
 
     @Mock
     private GetPriceUseCase getPriceUseCase;
