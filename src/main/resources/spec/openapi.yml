@@ -13,22 +13,11 @@ paths:
         - price
       operationId: getPrice
       parameters:
-        - name: productId
+        - name: filter
           in: query
           required: true
           schema:
-            type: string
-        - name: brandId
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date-localdatetime
+            "$ref": '#/components/schemas/PriceFilterDTO'
       responses:
         '200':
           description: OK
@@ -44,6 +33,26 @@ paths:
                 $ref: '#/components/schemas/ErrorMessage'
 components:
   schemas:
+    PriceFilterDTO:
+      type: object
+      required:
+        - productId
+        - brandId
+        - date
+      properties:
+        productId:
+          type: string
+          description: Product id
+          example: 35455
+        brandId:
+          type: string
+          description: Brand id
+          example: 1
+        date:
+          type: string
+          description: Date
+          format: date-localdatetime
+          example: 2020-06-14T10:00:00Z
     PriceDTO:
       type: object
       properties:
