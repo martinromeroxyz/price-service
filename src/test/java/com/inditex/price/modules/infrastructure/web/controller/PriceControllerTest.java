@@ -4,7 +4,7 @@ import com.inditex.price.model.PriceDTO;
 import com.inditex.price.modules.domain.usecase.GetPriceUseCase;
 import com.inditex.price.modules.infrastructure.error.ErrorHandler;
 import com.inditex.price.modules.infrastructure.error.PriceException;
-import com.inditex.price.modules.infrastructure.web.filter.PriceFilter;
+import com.inditex.price.modules.domain.filter.PriceFilter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,7 +31,7 @@ class PriceControllerTest {
     private static final String GET_PRICE_URL = "/price";
 
     @InjectMocks
-    private PriceController priceController;
+    private com.inditex.price.modules.infrastructure.web.controller.PriceController priceController;
 
     @Mock
     private GetPriceUseCase getPriceUseCase;
@@ -47,9 +47,9 @@ class PriceControllerTest {
         when(getPriceUseCase.getPrice(any(PriceFilter.class))).thenReturn(mockPriceDTO());
 
         final MvcResult result = mockMvc.perform(get(GET_PRICE_URL)
-                .param("productId", "35455")
-                .param("brandId", "1")
-                .param("date", "2020-06-14T21:00:00"))
+                        .param("productId", "35455")
+                        .param("brandId", "1")
+                        .param("date", "2020-06-14T21:00:00"))
                 .andExpect(status().isOk()).andReturn();
 
         final String content = result.getResponse().getContentAsString();
@@ -61,9 +61,9 @@ class PriceControllerTest {
         when(getPriceUseCase.getPrice(any(PriceFilter.class))).thenThrow(new PriceException("Product does not exist or there is not a price for this date"));
 
         mockMvc.perform(get(GET_PRICE_URL)
-                .param("productId", "35455")
-                .param("brandId", "1")
-                .param("date", "2020-06-14T21:00:00"))
+                        .param("productId", "35455")
+                        .param("brandId", "1")
+                        .param("date", "2020-06-14T21:00:00"))
                 .andExpect(status().isNotFound());
     }
 

@@ -50,5 +50,4 @@ public class PriceJpaEntity {
 
     @Column(name = "CURR")
     private Currency currency;
-
 }

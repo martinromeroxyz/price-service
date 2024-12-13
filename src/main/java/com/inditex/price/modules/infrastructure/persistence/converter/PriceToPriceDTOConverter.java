@@ -1,4 +1,4 @@
-package com.inditex.price.modules.application.converter;
+package com.inditex.price.modules.infrastructure.persistence.converter;
 
 import com.inditex.price.model.PriceDTO;
 import com.inditex.price.modules.domain.model.Price;

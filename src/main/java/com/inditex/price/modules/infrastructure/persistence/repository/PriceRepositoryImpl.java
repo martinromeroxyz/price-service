@@ -5,7 +5,7 @@ import com.inditex.price.modules.domain.repository.PriceRepository;
 import com.inditex.price.modules.infrastructure.persistence.converter.PriceJpaEntityToPriceConverter;
 import com.inditex.price.modules.infrastructure.persistence.entity.PriceJpaEntity;
 import com.inditex.price.modules.infrastructure.persistence.specification.PriceSpecification;
-import com.inditex.price.modules.infrastructure.web.filter.PriceFilter;
+import com.inditex.price.modules.domain.filter.PriceFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

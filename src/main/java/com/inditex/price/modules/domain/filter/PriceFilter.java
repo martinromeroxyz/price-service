@@ -1,4 +1,4 @@
-package com.inditex.price.modules.infrastructure.web.filter;
+package com.inditex.price.modules.domain.filter;
 
 import lombok.Builder;
 import lombok.Data;

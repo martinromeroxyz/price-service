@@ -2,7 +2,7 @@ package com.inditex.price.modules.infrastructure.persistence.specification;
 
 import com.inditex.price.modules.infrastructure.persistence.entity.BrandJpaEntity;
 import com.inditex.price.modules.infrastructure.persistence.entity.PriceJpaEntity;
-import com.inditex.price.modules.infrastructure.web.filter.PriceFilter;
+import com.inditex.price.modules.domain.filter.PriceFilter;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
