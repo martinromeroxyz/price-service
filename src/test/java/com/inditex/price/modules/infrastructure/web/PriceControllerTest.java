@@ -1,28 +1,30 @@
-package com.inditex.price.modules.infrastructure.web.controller;
+package com.inditex.price.modules.infrastructure.web;
 
 import com.inditex.price.model.PriceDTO;
+import com.inditex.price.modules.domain.filter.PriceFilter;
 import com.inditex.price.modules.domain.usecase.GetPriceUseCase;
 import com.inditex.price.modules.infrastructure.error.ErrorHandler;
 import com.inditex.price.modules.infrastructure.error.PriceException;
-import com.inditex.price.modules.domain.filter.PriceFilter;
-import com.inditex.price.modules.infrastructure.web.PriceController;
+import com.inditex.price.modules.infrastructure.persistence.converter.PriceFilterDTOToPriceFilterConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith( MockitoExtension.class )
@@ -37,8 +39,14 @@ class PriceControllerTest {
     @Mock
     private GetPriceUseCase getPriceUseCase;
 
+    private PriceFilterDTOToPriceFilterConverter priceFilterDTOToPriceFilterConverter;
+
     @BeforeEach
     public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        this.priceFilterDTOToPriceFilterConverter = new PriceFilterDTOToPriceFilterConverter();
+        this.priceController = new PriceController(getPriceUseCase, priceFilterDTOToPriceFilterConverter);
+
         this.mockMvc = MockMvcBuilders.standaloneSetup( priceController )
                 .setControllerAdvice(new ErrorHandler()).build();
     }
@@ -46,15 +54,13 @@ class PriceControllerTest {
     @Test
     public void shouldReturnPriceWhenValidRequest() throws Exception {
         when(getPriceUseCase.getPrice(any(PriceFilter.class))).thenReturn(mockPriceDTO());
-
-        final MvcResult result = mockMvc.perform(get(GET_PRICE_URL)
+        mockMvc.perform(get(GET_PRICE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .param("productId", "35455")
                         .param("brandId", "1")
                         .param("date", "2020-06-14T21:00:00"))
-                .andExpect(status().isOk()).andReturn();
-
-        final String content = result.getResponse().getContentAsString();
-        assertTrue( content.contains( "\"price\":35.5" ) );
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.price", is(Double.valueOf("35.5"))));
     }
 
     @Test
@@ -62,6 +68,7 @@ class PriceControllerTest {
         when(getPriceUseCase.getPrice(any(PriceFilter.class))).thenThrow(new PriceException("Product does not exist or there is not a price for this date"));
 
         mockMvc.perform(get(GET_PRICE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .param("productId", "35455")
                         .param("brandId", "1")
                         .param("date", "2020-06-14T21:00:00"))
@@ -69,7 +76,7 @@ class PriceControllerTest {
     }
 
     @Test
-    public void shouldReturn400WhenInvalidRequest() throws Exception {
+    public void shouldThrowExceptionWhenIsBadRequest() throws Exception {
         mockMvc.perform(get(GET_PRICE_URL)).andExpect(status().isBadRequest()).andReturn();
     }
 
